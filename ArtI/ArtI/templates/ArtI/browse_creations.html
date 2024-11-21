@@ -3,23 +3,15 @@
 {% block content %}
 
 <h2 class="h2">Creations</h2>
-    <div class="articles">
+<div class="articles">
+    {% for creation in creations %}
         <div class="article">
-          <img src="image1.jpg" alt="Image 1">
-          <p class="description">Description for article 1</p>
+            <img src="{{ creation.link }}" alt="{{ creation.title }}">
+            <p class="description">{{ creation.description }}</p>
         </div>
-        <div class="article">
-          <img src="image2.jpg" alt="Image 2">
-          <p class="description">Description for article 2</p>
-        </div>
-        <div class="article">
-          <img src="image3.jpg" alt="Image 3">
-          <p class="description">Description for article 3</p>
-        </div>
-        <div class="article">
-          <img src="image4.jpg" alt="Image 4">
-          <p class="description">Description for article 4</p>
-        </div>
-      </div>
+    {% empty %}
+        <p>No creations available at the moment.</p>
+    {% endfor %}
+</div>
 
 {% endblock %}
