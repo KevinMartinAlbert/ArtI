@@ -8,12 +8,13 @@
 :root {
   font-family: Arial, Helvetica, sans-serif;
   --padding: 1rem;
-  --alphawhite: rgba(0, 0, 0, 90);
-  --alphablack: rgba(100, 100, 100, 30);
+  --alphablack: rgba(0, 0, 0, 0.3);
+  --alphawhite: rgba(255, 255, 255, 0.9);
   --black: #000000;
   --border: 1px var(--black) solid;
   --margin-inline: calc((100vw - (100vw / 1.618)) / 2);
   --margin-vertical: 1rem;
+  --nav-a-margin: 1rem;
 }
 
 .container {
@@ -29,6 +30,8 @@
   border: var(--border);
   margin-inline: var(--margin-inline);
   margin-top: var(--margin-vertical);
+  background-color: var(--alphawhite);
+  box-shadow: 0px 2px var(--alphablack);
 }
 
 .main {
@@ -40,15 +43,28 @@
  justify-content: center;
 }
 
-h1, h2 {
+.h1, .h2 {
   font-family: "ThePolygonal-ZulEan";
   font-size: 3rem;
+}
+
+.h2 {
+  margin-bottom: var(--margin-vertical);
+}
+
+.a {
+cursor: pointer;
+}
+
+.nav-a {
+  margin-inline: var(--nav-a-margin);
 }
 
 .articles {
   display: flex;
   flex-direction: column;
   gap: 2rem;
+  width: calc(100% /1.618);
 }
 
 .article {
@@ -58,7 +74,14 @@ h1, h2 {
 }
 
 .article img {
-  max-width: 50%;
+  width: 50%;
+  clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+  background-color: var(--alphablack);
+  min-height: 300px;
+}
+
+.article .description {
+  width: 50%;
 }
 
 .article:nth-child(odd) {
@@ -67,4 +90,8 @@ h1, h2 {
 
 .article:nth-child(even) {
   flex-direction: row-reverse;
+}
+
+.article:nth-child(even) .description {
+  text-align: right;
 }
