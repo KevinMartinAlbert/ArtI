@@ -1,13 +1,36 @@
 {% load static %}
-
+<!DOCTYPE html>
 <html>
     <head>
         <title>ArtI</title>
-        <link rel="stylesheet" href="{% static 'ArtI/styles.css' %}" />
+        <link rel="stylesheet" href="{% static 'ArtI/css/reset.css' %}" />
+        <link rel="stylesheet" href="{% static 'ArtI/css/styles.css' %}" />
     </head>
     <body>
-
-        {% block content %}{% endblock %}
-
+        <div class="container">
+            <header class="header">
+                <div>
+                    <h1>ArtI</h1>
+                </div>
+                <div>
+                    <nav>
+                        <span>Categories</span>
+                        <span>Our artists</span>
+                        <span>Browse creations</span>
+                    </nav>
+                </div>
+                <div>
+                    <span>Login</span>
+                </div>
+            </header>
+    
+            <main class="main">
+                {% block content %}{% endblock %} 
+            </main>
+    
+            <footer class="footer">
+                <p>Kévin Martin - 2024</p>
+            </footer>
+        </div>
     </body>
 </html>

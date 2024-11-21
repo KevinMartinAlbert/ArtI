@@ -1,0 +1,70 @@
+@font-face {
+  font-family: "ThePolygonal-ZulEan";
+  src: 
+    local("ThePolygonal-ZulEan"),
+    url('../fonts/ThePolygonal-ZulEan.otf') format('opentype');
+}
+
+:root {
+  font-family: Arial, Helvetica, sans-serif;
+  --padding: 1rem;
+  --alphawhite: rgba(0, 0, 0, 90);
+  --alphablack: rgba(100, 100, 100, 30);
+  --black: #000000;
+  --border: 1px var(--black) solid;
+  --margin-inline: calc((100vw - (100vw / 1.618)) / 2);
+  --margin-vertical: 1rem;
+}
+
+.container {
+  padding-inline: auto;
+}
+
+.header, .footer, .main {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--padding);
+  border: var(--border);
+  margin-inline: var(--margin-inline);
+  margin-top: var(--margin-vertical);
+}
+
+.main {
+  flex-direction: column;
+}
+
+.footer {
+ margin-bottom: var(--margin-vertical);
+ justify-content: center;
+}
+
+h1, h2 {
+  font-family: "ThePolygonal-ZulEan";
+  font-size: 3rem;
+}
+
+.articles {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.article {
+  display: flex;
+  align-items: center;
+  gap: var(--padding);
+}
+
+.article img {
+  max-width: 50%;
+}
+
+.article:nth-child(odd) {
+  flex-direction: row;
+}
+
+.article:nth-child(even) {
+  flex-direction: row-reverse;
+}
