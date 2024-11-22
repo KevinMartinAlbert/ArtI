@@ -15,6 +15,8 @@
   --margin-inline: calc((100vw - (100vw / 1.618)) / 2);
   --margin-vertical: 1rem;
   --nav-a-margin: 1rem;
+  cursor: url(../cursor/cursor.png), auto;
+  scrollbar-width: thin;
 }
 
 .container {
@@ -32,6 +34,7 @@
   margin-top: var(--margin-vertical);
   background-color: var(--alphawhite);
   box-shadow: 0px 2px var(--alphablack);
+  backdrop-filter: blur(1px);
 }
 
 .main {
@@ -50,6 +53,25 @@
 
 .h2 {
   margin-bottom: var(--margin-vertical);
+  position: relative;
+}
+
+.h2::before {
+  font-size: 5rem;
+  color: var(--alphablack);
+  content: "\25B2\25B2";
+  position: absolute;
+  right: 35%;
+  top: -30%;
+}
+
+.h2::after {
+  font-size: 5rem;
+  color: var(--alphablack);
+  content: "\25BC";
+  position: absolute;
+  right: 52%;
+  top: -55%;
 }
 
 .a {
@@ -99,13 +121,17 @@ cursor: pointer;
 /* voronoi */
 
 .voronoi {
-	width: 100vw;
-	height: 100vh;
+	width: 99.1vw;
+	height: 100%;
 
 	--voronoi-number-of-cells: 100;
-	--voronoi-dot-color: #000;
+	--voronoi-dot-color: #fff;
+  --voronoi-cell-color: #fff;
 
 	background-image: paint(voronoi);
+  background-size: cover; /* Ensures it covers the whole viewport */
+  background-position: center; /* Centers the pattern */
+  background-repeat: no-repeat; /* Prevents tiling */
 	
 	transition: 
 		--voronoi-line-color 0.5s ease-in-out,
@@ -119,7 +145,7 @@ cursor: pointer;
 }
 @property --voronoi-margin {
 	syntax: "<percentage>";
-	initial-value: 0%;
+	initial-value: -2%;
 	inherits: false;
 }
 @property --voronoi-line-color {
@@ -149,32 +175,6 @@ cursor: pointer;
 }
 @property --voronoi-seed {
 	syntax: "<number>";
-	initial-value: 123456;
+	initial-value: 000001;
 	inherits: true;
-}
-
-
-
-
-
-
-
-
-/** non-essential demo styles below **/
-* {
-	box-sizing: border-box;
-}
-
-html,
-body {
-	margin: 0;
-	padding: 0;
-}
-
-.voronoi {
-	display: grid;
-	place-items: center;
-	font-size: calc(4vw + 1em);
-	padding: 5vw;
-	text-transform: uppercase;
 }
