@@ -98,8 +98,6 @@ cursor: pointer;
 .article img {
   width: 50%;
   clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
-  background-color: var(--alphablack);
-  min-height: 300px;
 }
 
 .article .description {
@@ -129,9 +127,9 @@ cursor: pointer;
   --voronoi-cell-color: #fff;
 
 	background-image: paint(voronoi);
-  background-size: cover; /* Ensures it covers the whole viewport */
-  background-position: center; /* Centers the pattern */
-  background-repeat: no-repeat; /* Prevents tiling */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 	
 	transition: 
 		--voronoi-line-color 0.5s ease-in-out,
